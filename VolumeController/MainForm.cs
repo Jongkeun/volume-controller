@@ -58,6 +58,7 @@ namespace VolumeController
                             listBox1.Items.Add(dev.FriendlyName);
 
                             master = dev;
+                            return;
                         }
                         else
                         {
