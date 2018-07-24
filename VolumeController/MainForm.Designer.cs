@@ -35,11 +35,13 @@
             this.lbMax = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.cbDevice = new System.Windows.Forms.ComboBox();
+            this.lbDevice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnUp
             // 
-            this.btnUp.Location = new System.Drawing.Point(204, 47);
+            this.btnUp.Location = new System.Drawing.Point(204, 79);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(75, 23);
             this.btnUp.TabIndex = 0;
@@ -59,7 +61,7 @@
             // 
             // txtMax
             // 
-            this.txtMax.Location = new System.Drawing.Point(77, 47);
+            this.txtMax.Location = new System.Drawing.Point(77, 79);
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(100, 21);
             this.txtMax.TabIndex = 2;
@@ -71,12 +73,12 @@
             this.txtSpeed.Name = "txtSpeed";
             this.txtSpeed.Size = new System.Drawing.Size(100, 21);
             this.txtSpeed.TabIndex = 3;
-            this.txtSpeed.Text = "10";
+            this.txtSpeed.Text = "50";
             // 
             // lbMax
             // 
             this.lbMax.AutoSize = true;
-            this.lbMax.Location = new System.Drawing.Point(12, 50);
+            this.lbMax.Location = new System.Drawing.Point(12, 82);
             this.lbMax.Name = "lbMax";
             this.lbMax.Size = new System.Drawing.Size(30, 12);
             this.lbMax.TabIndex = 4;
@@ -95,16 +97,36 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(12, 170);
+            this.listBox1.Location = new System.Drawing.Point(12, 159);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(267, 196);
             this.listBox1.TabIndex = 6;
+            // 
+            // cbDevice
+            // 
+            this.cbDevice.FormattingEnabled = true;
+            this.cbDevice.Location = new System.Drawing.Point(77, 43);
+            this.cbDevice.Name = "cbDevice";
+            this.cbDevice.Size = new System.Drawing.Size(202, 20);
+            this.cbDevice.TabIndex = 7;
+            this.cbDevice.SelectedIndexChanged += new System.EventHandler(this.cbDevice_SelectedIndexChanged);
+            // 
+            // lbDevice
+            // 
+            this.lbDevice.AutoSize = true;
+            this.lbDevice.Location = new System.Drawing.Point(12, 46);
+            this.lbDevice.Name = "lbDevice";
+            this.lbDevice.Size = new System.Drawing.Size(43, 12);
+            this.lbDevice.TabIndex = 8;
+            this.lbDevice.Text = "Device";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(303, 377);
+            this.Controls.Add(this.lbDevice);
+            this.Controls.Add(this.cbDevice);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbMax);
@@ -130,6 +152,8 @@
         private System.Windows.Forms.Label lbMax;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox cbDevice;
+        private System.Windows.Forms.Label lbDevice;
     }
 }
 

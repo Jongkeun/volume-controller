@@ -56,9 +56,7 @@ namespace VolumeController
                         {
                             listBox1.Items.Add("Device 찾음");
                             listBox1.Items.Add(dev.FriendlyName);
-
-                            master = dev;
-                            return;
+                            cbDevice.Items.Add(dev);
                         }
                         else
                         {
@@ -78,6 +76,11 @@ namespace VolumeController
                 listBox1.Items.Add(ex.ToString());
                 //When something happend that prevent us to iterate through the devices
                 // _log.Warn("Could not enumerate devices due to an excepion: " + ex.Message);
+            }
+            if(cbDevice.Items.Count > 0)
+            {
+                cbDevice.SelectedIndex = 0;
+                master = (NAudio.CoreAudioApi.MMDevice)cbDevice.Items[0];
             }
         }
         public void SetVolume(int level)
@@ -148,6 +151,11 @@ namespace VolumeController
         {
             UnregisterHotKey(this.Handle, UP);
             UnregisterHotKey(this.Handle, DOWN);
+        }
+
+        private void cbDevice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            master = (NAudio.CoreAudioApi.MMDevice)cbDevice.Items[cbDevice.SelectedIndex];
         }
     }
 }
