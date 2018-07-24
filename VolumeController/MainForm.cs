@@ -26,17 +26,19 @@ namespace VolumeController
             Windows = 8
         }
         const int UP = 31197; //Any number to use to identify the hotkey instance
-        const int DOWN = 31198; //Any number to use to identify the hotkey instance
+        const int DOWN = 31198;
+        const int SET = 31199;
+        const int FADEOUT = 31200;
         const int WM_HOTKEY = 0x0312;
         NAudio.CoreAudioApi.MMDevice master = null;
         public MainForm()
         {
             InitializeComponent();
             GetDevice();
-            bool result = RegisterHotKey(this.Handle, UP, KeyModifiers.Control | KeyModifiers.Shift, Keys.Up);
-            listBox1.Items.Add(result);
-            result = RegisterHotKey(this.Handle, DOWN, KeyModifiers.Control | KeyModifiers.Shift, Keys.Down);
-            listBox1.Items.Add(result);
+            RegisterHotKey(this.Handle, UP, KeyModifiers.Control | KeyModifiers.Shift, Keys.Up);
+            RegisterHotKey(this.Handle, DOWN, KeyModifiers.Control | KeyModifiers.Shift, Keys.Down);
+            RegisterHotKey(this.Handle, SET, KeyModifiers.Control | KeyModifiers.Shift | KeyModifiers.Alt, Keys.Up);
+            RegisterHotKey(this.Handle, FADEOUT, KeyModifiers.Control | KeyModifiers.Shift | KeyModifiers.Alt, Keys.Down);
         }
         private void GetDevice()
         {
@@ -142,6 +144,14 @@ namespace VolumeController
                     {
                         SetVolume(GetVolumeLevel() - 1);
                     }
+                    else if ((KeyModifiers.Control | KeyModifiers.Shift | KeyModifiers.Alt) == modifier && Keys.Up == key)
+                    {
+                        btnUp.PerformClick();
+                    }
+                    else if ((KeyModifiers.Control | KeyModifiers.Shift | KeyModifiers.Alt) == modifier && Keys.Down == key)
+                    {
+                        btnDown.PerformClick();
+                    }
                     break;
             }
             base.WndProc(ref message);
@@ -151,6 +161,8 @@ namespace VolumeController
         {
             UnregisterHotKey(this.Handle, UP);
             UnregisterHotKey(this.Handle, DOWN);
+            UnregisterHotKey(this.Handle, SET);
+            UnregisterHotKey(this.Handle, FADEOUT);
         }
 
         private void cbDevice_SelectedIndexChanged(object sender, EventArgs e)
