@@ -38,6 +38,8 @@
             this.cbDevice = new System.Windows.Forms.ComboBox();
             this.lbDevice = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnUp
@@ -126,17 +128,36 @@
             this.lbDescription.AutoSize = true;
             this.lbDescription.Location = new System.Drawing.Point(14, 118);
             this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(283, 48);
+            this.lbDescription.Size = new System.Drawing.Size(108, 48);
             this.lbDescription.TabIndex = 9;
-            this.lbDescription.Text = "Volume Up : Ctrl + Shift + Up Arrow\r\nVolume Down : Ctrl + Shift + Down Arrow\r\nVol" +
-    "ume Set : Ctrl + Shift + Alt+ Up Arrow\r\nVolume Fade Out  : Ctrl + Shift + Alt+ D" +
-    "own Arrow";
+            this.lbDescription.Text = "Volume Up        \r\nVolume Down      \r\nVolume Set       \r\nVolume Fade Out ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(118, 118);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(9, 48);
+            this.label1.TabIndex = 10;
+            this.label1.Text = ":\r\n:\r\n:\r\n:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(132, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 48);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Ctrl + Shift + Up Arrow\r\nCtrl + Shift + Down Arrow\r\nCtrl + Shift + Alt+ Up Arrow\r" +
+    "\nCtrl + Shift + Alt+ Down Arrow";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(303, 174);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.lbDevice);
             this.Controls.Add(this.cbDevice);
@@ -169,6 +190,8 @@
         private System.Windows.Forms.ComboBox cbDevice;
         private System.Windows.Forms.Label lbDevice;
         private System.Windows.Forms.Label lbDescription;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
