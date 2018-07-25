@@ -146,10 +146,10 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(132, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 48);
+            this.label3.Size = new System.Drawing.Size(132, 48);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Ctrl + Shift + Up Arrow\r\nCtrl + Shift + Down Arrow\r\nCtrl + Shift + Alt+ Up Arrow\r" +
-    "\nCtrl + Shift + Alt+ Down Arrow";
+            this.label3.Text = "Ctrl + Shift + Up\r\nCtrl + Shift + Down\r\nCtrl + Shift + Alt+ Up\r\nCtrl + Shift + Al" +
+    "t+ Down";
             // 
             // MainForm
             // 
