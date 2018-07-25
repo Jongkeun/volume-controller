@@ -40,6 +40,8 @@
             this.lbDescription = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.gbDescription = new System.Windows.Forms.GroupBox();
+            this.gbDescription.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnUp
@@ -100,7 +102,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(16, 178);
+            this.listBox1.Location = new System.Drawing.Point(16, 223);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(265, 196);
             this.listBox1.TabIndex = 6;
@@ -126,7 +128,7 @@
             // lbDescription
             // 
             this.lbDescription.AutoSize = true;
-            this.lbDescription.Location = new System.Drawing.Point(14, 118);
+            this.lbDescription.Location = new System.Drawing.Point(6, 22);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(108, 48);
             this.lbDescription.TabIndex = 9;
@@ -135,7 +137,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 118);
+            this.label1.Location = new System.Drawing.Point(110, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(9, 48);
             this.label1.TabIndex = 10;
@@ -144,21 +146,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(132, 117);
+            this.label3.Location = new System.Drawing.Point(124, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 48);
             this.label3.TabIndex = 11;
             this.label3.Text = "Ctrl + Shift + Up\r\nCtrl + Shift + Down\r\nCtrl + Shift + Alt+ Up\r\nCtrl + Shift + Al" +
     "t+ Down";
             // 
+            // gbDescription
+            // 
+            this.gbDescription.Controls.Add(this.lbDescription);
+            this.gbDescription.Controls.Add(this.label3);
+            this.gbDescription.Controls.Add(this.label1);
+            this.gbDescription.Location = new System.Drawing.Point(16, 122);
+            this.gbDescription.Name = "gbDescription";
+            this.gbDescription.Size = new System.Drawing.Size(265, 80);
+            this.gbDescription.TabIndex = 12;
+            this.gbDescription.TabStop = false;
+            this.gbDescription.Text = "Description";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 174);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbDescription);
+            this.ClientSize = new System.Drawing.Size(303, 210);
+            this.Controls.Add(this.gbDescription);
             this.Controls.Add(this.lbDevice);
             this.Controls.Add(this.cbDevice);
             this.Controls.Add(this.listBox1);
@@ -168,12 +180,14 @@
             this.Controls.Add(this.txtMax);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnUp);
-            this.MaximumSize = new System.Drawing.Size(319, 425);
+            this.MaximumSize = new System.Drawing.Size(319, 470);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Volume";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.gbDescription.ResumeLayout(false);
+            this.gbDescription.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +207,7 @@
         private System.Windows.Forms.Label lbDescription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox gbDescription;
     }
 }
 
