@@ -17,6 +17,15 @@ namespace VolumeController
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, KeyModifiers fsModifiers, Keys vk);
         [DllImport("user32.dll")]
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+        //Any number to use to identify the hotkey instance
+        const int UP = 31197;
+        const int DOWN = 31198;
+        const int SET = 31199;
+        const int FADEOUT = 31200;
+        const int WM_HOTKEY = 0x0312;
+        NAudio.CoreAudioApi.MMDevice master = null;
+
         public enum KeyModifiers
         {
             None = 0,
@@ -25,12 +34,7 @@ namespace VolumeController
             Shift = 4,
             Windows = 8
         }
-        const int UP = 31197; //Any number to use to identify the hotkey instance
-        const int DOWN = 31198;
-        const int SET = 31199;
-        const int FADEOUT = 31200;
-        const int WM_HOTKEY = 0x0312;
-        NAudio.CoreAudioApi.MMDevice master = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -68,16 +72,12 @@ namespace VolumeController
                     catch (Exception ex)
                     {
                         listBox1.Items.Add(ex.ToString());
-                        //Do something with exception when an audio endpoint could not be muted
-                        //_log.Warn(dev.FriendlyName + " could not be muted with error " + ex);
                     }
                 }
             }
             catch (Exception ex)
             {
                 listBox1.Items.Add(ex.ToString());
-                //When something happend that prevent us to iterate through the devices
-                // _log.Warn("Could not enumerate devices due to an excepion: " + ex.Message);
             }
             if(cbDevice.Items.Count > 0)
             {
@@ -94,10 +94,8 @@ namespace VolumeController
                 {
                     listBox1.Items.Add("There is master.");
                     var newVolume = (float)Math.Max(Math.Min(level, 100), 0) / (float)100;
-
                     //Set at maximum volume
                     master.AudioEndpointVolume.MasterVolumeLevelScalar = newVolume;
-
                     master.AudioEndpointVolume.Mute = level == 0;
                 }
             }
